@@ -29,14 +29,9 @@ void main() {
   var numbers = [1, 2, 3, 4];
   numbers.add(1); // 여러 메소드 제공
 
+// collection if: 존재할 수도 안할 수도 있는 요소를 가지고 올 수 있음
   var giveMeFive = true;
-  var numbersTest = [
-    1,
-    2,
-    3,
-    4,
-    if (giveMeFive) 5
-  ]; // collection if: 존재할 수도 안할 수도 있는 요소를 가지고 올 수 있음
+  var numbersTest = [1, 2, 3, 4, if (giveMeFive) 5];
   // String Interpolation: text에 변수를 추가하는 방법
   var greeting =
       'hello everyone my name is $myName, nice to meet you! ${age + 2}';
@@ -57,4 +52,57 @@ void main() {
   // Sets 자료형: Set에 속한 모든 아이템들이 유니크해야될 때 사용, 파이썬 튜플 역할
   Set<int> backnumbers = {1, 2, 3, 4};
   List<int> backnumber = [1, 2, 3, 4];
+
+  // print(sayHello("paek", 27, "keita"));
+  // print(sayHello(name: "jelda", age: 27, country: "cuba"));
 }
+
+// String sayHello(String name) {
+//   // void: return값이 없음
+//   return "HELLO $name nice to meet you";
+// }
+
+// String sayHello(String name) =>
+//     "HELLO $name nice to meet you"; // fat arrow syntax: 바로 return한다는 의미로 한 줄일 때 주로 사용
+
+// // named parameter: positional argument의 경우 각각의 위치를 기억해야만한다.
+
+// // null safe를 우려함
+// // required modifier 를 타입 앞에 붙이는 경우 에러를 나타내 반드시 값을 넣게끔 할 수 있다.
+// String sayHello(
+//     {required String name, required int age, required String country}) {
+//   return "hello $name, you are $age, and you come from $country";
+// }
+
+// // default 값을 사용하는 경우
+// String sayHello(
+//     {String name = "coco", int age = 17, String country = "bacon"}) {
+//   return "hello $name, you are $age, and you come from $country";
+// }
+
+// // optional paremeters 필수가 아닌 선택형으로 만들 수 있음 대괄호, ?, dafault 값 부여 필요
+// String sayHello(String name, int age, [String? country = "hongkong"]) {
+//   return "hello $name, you are $age, and you come from $country";
+// }
+
+// QQ Operator
+String capitalizeName(String? name) =>
+    // name != null ? name.toUpperCase() : 'ANON';
+    name?.toUpperCase() ?? 'ANON';
+
+// typedef 자료형을 간편하게 작성 가능
+/***
+// 전
+List reverseListOfNumbers(List list) {
+var reversed = list.reversed;
+return reversed.toList();
+}
+```
+```dart
+// 후
+typedef ListOfInts = List;
+
+ListOfInts reverseListOfNumbers(ListOfInts list) {
+var reversed = list.reversed;
+return reversed.toList();
+***/
