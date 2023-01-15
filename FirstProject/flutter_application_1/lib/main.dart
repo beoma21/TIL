@@ -108,6 +108,7 @@ return reversed.toList();
 ***/
 ///
 ///
+
 class Player {
   String name;
   int xp, age;
@@ -171,4 +172,34 @@ void main() {
 
   var player3 = Human("namde", 12, "teame", 55);
   player3.sayHello();
+}
+
+/// Recap 23/1/15
+void main() {
+  // 변수
+  final chin = "strong";
+  const pee = "jewis";
+  late dynamic pist;
+  String? bin = "strong";
+  print(bin);
+
+  // 자료형
+  int sibi = 17;
+  double sisi = 17.53;
+  String koko = "sw";
+  bool iskoko = true;
+  bool ispepe = false;
+  var kakao = ['chin', 'awful'];
+  var numbers = ["ss", 2, 3, 4, if (ispepe) 5, for (var k in kakao) 4];
+  print(numbers);
+  var player = {'name': 'kanu', 'height': 178, 'weight': 65};
+  Set<int> nums = {1, 1, 2, 3};
+
+  String hey(int street, bool sex, {required String name, required int age}) =>
+      "hey you!, watch out man~ $age & $name";
+  String boy({String name = "klook", int age = 20}) => "$name, $age";
+  String city(String? wj) => wj?.toUpperCase() ?? "SIBI";
+  print(hey(name: "sine", age: 21, 17, true));
+  print(boy(name: "kolin", age: 22));
+  print(city("wevin"));
 }
