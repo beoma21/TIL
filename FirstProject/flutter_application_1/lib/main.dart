@@ -2,27 +2,115 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  var charm = Player(name: "chim");
   runApp(App());
 }
 
 class Player {
-  String? name;
+  String name;
+
+  Player({required this.name});
 }
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    // material:  구글, cupertino: 애플 디자인 앱을 어떤 디자인으로 만들고 싶은지, 보통 구글 디자인이 더 보기 좋음
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red.shade300,
-        title: Text('hello, flutter'),
-        centerTitle: true,
-      ),
-      body: Center(child: Text('hello')),
-      // scaffold 우리 화면의 구조를 정해줘야함
-    ) // material:  구글, cupertino: 애플 디자인 앱을 어떤 디자인으로 만들고 싶은지, 보통 구글 디자인이 더 보기 좋음
+            backgroundColor: Color(0xFF181818),
+            body: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 40,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "hey, ditto",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          Text(
+                            "Welcome, Warriors",
+                            style: TextStyle(
+                                color: Colors.white.withOpacity(0.7),
+                                fontSize: 14),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 120,
+                  ),
+                  Text(
+                    "Total Balance",
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "\$5 194 482",
+                    style: TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 20,
+                            horizontal: 40,
+                          ),
+                          child: Text(
+                            'Transfer',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(45)),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            )
+            // body: Center(
+
+            //   child: Text('hello')),
+            // scaffold 우리 화면의 구조를 정해줘야함
+
+            // appBar: AppBar(
+            //   backgroundColor: Colors.red.shade300,
+            //   title: Text('hello, flutter'),
+            //   centerTitle: true,
+            // ),
+            ) //
         );
   }
 }
