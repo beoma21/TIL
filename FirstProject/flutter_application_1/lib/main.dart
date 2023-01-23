@@ -19,15 +19,15 @@ class App extends StatelessWidget {
     // material:  구글, cupertino: 애플 디자인 앱을 어떤 디자인으로 만들고 싶은지, 보통 구글 디자인이 더 보기 좋음
     return MaterialApp(
         home: Scaffold(
-            backgroundColor: Color(0xFF181818),
+            backgroundColor: const Color(0xFF181818),
             body: Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 40,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
@@ -36,7 +36,7 @@ class App extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text(
+                          const Text(
                             "hey, ditto",
                             style: TextStyle(
                                 color: Colors.white,
@@ -53,7 +53,7 @@ class App extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 120,
                   ),
                   Text(
@@ -63,10 +63,10 @@ class App extends StatelessWidget {
                       color: Colors.white.withOpacity(0.8),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
-                  Text(
+                  const Text(
                     "\$5 194 482",
                     style: TextStyle(
                       fontSize: 48,
@@ -74,13 +74,16 @@ class App extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     children: [
                       Container(
-                        child: Padding(
+                        decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(45)),
+                        child: const Padding(
                           padding: EdgeInsets.symmetric(
                             vertical: 20,
                             horizontal: 40,
@@ -91,9 +94,6 @@ class App extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
                         ),
-                        decoration: BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius: BorderRadius.circular(45)),
                       ),
                     ],
                   )
