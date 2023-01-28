@@ -89,7 +89,66 @@ class App extends StatelessWidget {
                           bgColor: Color.fromARGB(255, 20, 17, 7),
                           textColor: Colors.white),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Wallets",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          "View All",
+                          style: TextStyle(
+                              color: Colors.white.withOpacity(0.8),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ]),
+                  const SizedBox(height: 20),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 20),
+                      child: Row(children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Euro',
+                              style:
+                                  TextStyle(color: Colors.amber, fontSize: 32),
+                            ),
+                            const SizedBox(height: 10),
+                            Row(
+                              children: [
+                                const Text('6428',
+                                    style: TextStyle(
+                                        color: Colors.amber, fontSize: 20)),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Text('EUR',
+                                    style: TextStyle(
+                                        color: Colors.amber.shade300,
+                                        fontSize: 20))
+                              ],
+                            )
+                          ],
+                        )
+                      ]),
+                    ),
+                  ),
                 ],
               ),
             )
