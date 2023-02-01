@@ -1,18 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/button.dart';
-import 'package:flutter_application_1/widgets/card.dart';
 
 void main() {
-  var charm = Player(name: "chim");
   runApp(App());
 }
 
-class Player {
-  String name;
-
-  Player({required this.name});
+class App extends StatefulWidget {
+  @override
+  State<App> createState() => _AppState();
 }
 
+class _AppState extends State<App> {
+  int counter = 0;
+  List<int> numbers = [];
+
+  void onClicked() {
+    setState(() {
+      counter += 1;
+      numbers.add(counter);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Text(
+              'Click Count',
+              style: TextStyle(fontSize: 30),
+            ),
+            IconButton(
+              iconSize: 40,
+              onPressed: onClicked,
+              icon: const Icon(
+                Icons.add_box_rounded,
+              ),
+            ),
+            Text(
+              "$counter",
+              style: const TextStyle(fontSize: 30),
+            ),
+            for (var n in numbers) Text("$n"),
+          ]),
+        ),
+      ),
+    );
+  }
+}
+
+/// #3. Widget
+/*
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -157,3 +196,4 @@ class App extends StatelessWidget {
         );
   }
 }
+*/
