@@ -10,9 +10,10 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  bool isShowTitle = false;
   int counter = 0;
   List<int> numbers = [];
-
+  // setstate state에게 데이터의 변화가 생겼다고 알려주는 메서드
   void onClicked() {
     setState(() {
       counter += 1;
@@ -20,17 +21,29 @@ class _AppState extends State<App> {
     });
   }
 
+  void toggleTitle() {
+    setState(() {
+      isShowTitle = !isShowTitle;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ),
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text(
-              'Click Count',
-              style: TextStyle(fontSize: 30),
-            ),
+            isShowTitle ? const MyLargeTitle() : const Text('Nothing'),
+            IconButton(
+                onPressed: toggleTitle, icon: const Icon(Icons.remove_red_eye)),
             IconButton(
               iconSize: 40,
               onPressed: onClicked,
@@ -45,6 +58,30 @@ class _AppState extends State<App> {
             for (var n in numbers) Text("$n"),
           ]),
         ),
+      ),
+    );
+  }
+}
+
+class MyLargeTitle extends StatefulWidget {
+  const MyLargeTitle({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<MyLargeTitle> createState() => _MyLargeTitleState();
+}
+
+class _MyLargeTitleState extends State<MyLargeTitle> {
+  int count = 0;
+  //  initstate 메서드가 build 메서드보다 항상 먼저 호출되어야함
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Click Count',
+      style: TextStyle(
+        fontSize: 30,
+        color: Theme.of(context).textTheme.titleLarge?.color,
       ),
     );
   }
