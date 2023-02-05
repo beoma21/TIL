@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/home_screen.dart';
 
 void main() {
   runApp(App());
 }
 
+class App extends StatelessWidget {
+  @override
+  Widget build(Object context) {
+    return MaterialApp(
+      theme: ThemeData(
+        backgroundColor: const Color(0xFFE7626C),
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+            color: Color(0xFF232B55),
+          ),
+        ),
+        cardColor: const Color(0xFFF4EDDB),
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+// #4. StatefulWidget
+/*
 class App extends StatefulWidget {
   @override
   State<App> createState() => _AppState();
@@ -86,6 +107,7 @@ class _MyLargeTitleState extends State<MyLargeTitle> {
     );
   }
 }
+*/
 
 /// #3. Widget
 /*
