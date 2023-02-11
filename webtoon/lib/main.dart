@@ -1,9 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:webtoon/screens/home_screen.dart';
-import 'package:webtoon/services/api_service.dart';
 
 void main() {
-  ApiService().getTodaysToons();
   runApp(const App());
 }
 
@@ -12,7 +11,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(Object context) {
-    return const MaterialApp(
+    return MaterialApp(
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown
+        },
+      ),
       home: HomeScreen(),
     );
   }
